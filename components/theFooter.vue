@@ -73,6 +73,24 @@
 
             </v-col>
         </v-row>
+        <!-- <v-divider></v-divider> -->
+        <v-row style="background-color: rgb(6, 50, 144);">
+            <v-col>
+                <p class="text-white">Design by KeteCode</p>
+            </v-col>
+            <v-col>
+                <p class="text-white">&copy; 2023 Osu Church of Christ</p>
+            </v-col>
+            <v-col>
+                <nuxt-link class="text-white" style="text-decoration: none;" to="">Privacy Policy</nuxt-link>
+            </v-col>
+            <v-col>
+                <nuxt-link class="text-white" style="text-decoration: none;" to="">Sitemap</nuxt-link>
+            </v-col>
+            <v-col>
+                <nuxt-link class="text-white" style="text-decoration: none;" to="">Accessibility</nuxt-link>
+            </v-col>
+        </v-row>
 
     </div>
 </template>
