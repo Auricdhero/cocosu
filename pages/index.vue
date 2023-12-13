@@ -46,21 +46,30 @@
                 <v-col>
                     <v-row v-for="event in events.data" :key="event.id">
                         <v-col>
-                            <v-card class="mx-auto" max-width="400">
-                                <!-- <h1>{{ event.attributes.Name }}</h1> -->
-                                <v-img :src="'http://127.0.0.1:1337' + event.attributes.Flyer.data.attributes.url"
-                                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover>
-                                    <v-container style="background-color: ;">
-                                        <h3 class="text-white ">{{ event.attributes.Name }}</h3>
-                                        <v-divider color="white"></v-divider>
-                                        <h5 class="text-white">{{ event.attributes.Location }}</h5>
-                                        <h5 class="text-white"
-                                            v-text="useDateFormat(event.attributes.Date, 'MMMM D, YYYY')"></h5>
-                                    </v-container>
-                                    <v-btn class="mx-5" variant="outlined" color="white">Learn More
-                                        <v-icon>mdi-arrow-right</v-icon></v-btn>
-                                </v-img>
-                            </v-card>
+                            <nuxt-link style="text-decoration: none" :to="'events/' + event.id">
+                                <v-container>
+                                    <v-hover v-slot="{ isHovering, props }">
+                                        <v-card v-bind="props" :elevation="isHovering ? 24 : 2" class="mx-auto"
+                                            max-width="400">
+                                            <!-- <h1>{{ event.attributes.Name }}</h1> -->
+                                            <v-img
+                                                :src="'http://127.0.0.1:1337' + event.attributes.Flyer.data.attributes.url"
+                                                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover>
+                                                <v-container style="background-color: ;">
+                                                    <h3 class="text-white ">{{ event.attributes.Name }}</h3>
+                                                    <v-divider color="white"></v-divider>
+                                                    <h5 class="text-white">{{ event.attributes.Location }}</h5>
+                                                    <h5 class="text-white"
+                                                        v-text="useDateFormat(event.attributes.Date, 'MMMM D, YYYY')"></h5>
+                                                </v-container>
+                                                <v-btn :to="'events/' + event.id" class="mx-5" variant="outlined" color="white">Learn More
+                                                    <v-icon>mdi-arrow-right</v-icon></v-btn>
+                                            </v-img>
+                                        </v-card></v-hover>
+
+                                </v-container>
+                            </nuxt-link>
+
                         </v-col>
                     </v-row>
                 </v-col>
@@ -171,5 +180,11 @@ const home = homePage.data.value;
 
 .question {
     font-family: "Sansita Swashed";
+}
+
+@media (max-width: 360px) {
+    h1.welcomeSec span {
+        font-size: 2.4rem;
+    }
 }
 </style>

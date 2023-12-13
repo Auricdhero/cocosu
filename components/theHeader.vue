@@ -20,9 +20,9 @@
                         <li class="nav-item">
                             <nuxt-link class="nav-link" to="/sermons/">Sermons</nuxt-link>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <nuxt-link class="nav-link" to="/blogs/">Blogs</nuxt-link>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                                 <nuxt-link class="nav-link" to="/events/">Events</nuxt-link>
                             </li>
