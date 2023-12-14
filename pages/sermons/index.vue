@@ -7,7 +7,7 @@
         <v-container>
             <v-row>
                 <v-col v-for="sermon in sermons.data" :key="sermon.id" cols="5">
-                    <nuxt-link class="sermon" :to="'sermons/' + sermon.id" style="text-decoration: none;">
+                    <nuxt-link class="sermon" :to="'/sermons/'+sermon.id" style="text-decoration: none;">
                         <v-container>
                             <v-hover v-slot="{ isHovering, props }">
                                 <v-card v-bind="props" :elevation="isHovering ? 24 : 2">
@@ -25,5 +25,6 @@
     </div>
 </template>
 <script setup>
+const route = useRoute();
 const { data: sermons } = await useFetch('http://127.0.0.1:1337/api/sermons?populate=*');
 </script>       

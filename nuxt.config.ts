@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
 
   vite: {
@@ -28,7 +30,7 @@ export default defineNuxtConfig({
       'Josefin+Slab': true,
       'Sansita+Swashed': true,
       'Tourney': true,
-      'Poppsins':true
+      'Poppsins': true
     }
   },
   strapi: {
@@ -42,11 +44,16 @@ export default defineNuxtConfig({
     transpile: ['vuetify']
   },
 
-  
+
   runtimeConfig: {
     public: {
       apiBase: process.env.API_URL
     }
+  },
+  imports: {
+    dirs: [
+      'composables/**'
+    ]
   },
   // ssr: false,
   devtools: { enabled: true }
