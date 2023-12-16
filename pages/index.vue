@@ -24,9 +24,32 @@
         </v-parallax>
         <div class="pt-6" style="background: rgb(50, 92, 219);">
             <v-container>
-                <h2 class="text-center text-uppercase text-white">service begins</h2>
+                <h2 class="text-center text-uppercase text-white">service begins:</h2>
                 <br>
-                <h5 class="text-center text-uppercase text-white">live now</h5>
+                <div class="countdown text-white text-center" style="font-weight: bold; font-size: 1.5rem;">
+                    <v-row>
+                        <v-col class="days">
+                            <span>0</span><br>
+                            <span>Days</span>
+                        </v-col>
+                        <v-divider vertical></v-divider>
+                        <v-col class="hours">
+                            <span>0</span><br>
+                            <span>Hours</span>
+                        </v-col>
+                        <v-divider vertical></v-divider>
+                        <v-col class="mins">
+                            <span>0</span><br>
+                            <span>Minutes</span>
+                        </v-col>
+                        <v-divider vertical></v-divider>
+                        <v-col class="secs">
+                            <span>0</span><br>
+                            <span>Seconds</span>
+                        </v-col>
+                    </v-row>
+                </div>
+
                 <br>
                 <div class="d-flex justify-center">
                     <v-btn color="indigo-darken-4" rounded>Invite Family & Friends</v-btn>
