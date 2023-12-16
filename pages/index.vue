@@ -29,7 +29,7 @@
                 <h5 class="text-center text-uppercase text-white">live now</h5>
                 <br>
                 <div class="d-flex justify-center">
-                    <v-btn color="indigo-darken-4">Invite Family & Friends</v-btn>
+                    <v-btn color="indigo-darken-4" rounded>Invite Family & Friends</v-btn>
                 </div>
 
                 <br>
@@ -37,20 +37,25 @@
         </div>
         <v-container class="mt-7">
             <v-row>
-                <v-col>
-                    <h3 class="text-bold">Introduction To The Church</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem at dignissimos eius. Quam temporibus
+                <v-col cols="auto" lg="4">
+                    <h1 class="text-bold" style="font-family: 'Mulish'; font-weight: bold;">Introduction To The Church</h1>
+                    <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem at dignissimos eius. Quam
+                        temporibus
                         tempora architecto nihil consequatur voluptate quibusdam cumque, consectetur iure nulla, accusantium
                         odit modi maiores recusandae tenetur.</p>
+
+                    <h1 class="text-uppercase"
+                        style="font-family: 'Poppsins'; color: transparent; font-size: 3.5rem; -webkit-text-stroke: 1px rgb(22, 53, 234);">
+                        no perfect people allowed</h1>
                 </v-col>
-                <v-col>
-                    <v-row v-for="event in events.data.slice(0, 3)" :key="event.id">
-                        <v-col>
+                <v-col cols="auto" lg="8">
+                    <v-row>
+                        <v-col v-for="event in events.data.slice(0, 4).reverse()" :key="event.id" cols="" lg="6">
                             <nuxt-link style="text-decoration: none" :to="'events/' + event.id">
                                 <v-container>
                                     <v-hover v-slot="{ isHovering, props }">
                                         <v-card v-bind="props" :elevation="isHovering ? 24 : 2"
-                                            class="mx-auto d-flex justify-center" max-width="400">
+                                            class="mx-auto d-flex justify-center" width="350">
                                             <!-- <h1>{{ event.attributes.Name }}</h1> -->
                                             <v-img
                                                 :src="'http://127.0.0.1:1337' + event.attributes.Flyer.data.attributes.url"
@@ -64,7 +69,7 @@
                                                     <h5 class="text-white d-flex justify-center"
                                                         v-text="useDateFormat(event.attributes.Date, 'MMMM D, YYYY')"></h5>
                                                 </v-container>
-                                                <v-btn class="ma-15 d-flex justify-center" :to="'events/' + event.id"
+                                                <v-btn class="ma-15 d-flex justify-center" :to="'/events/' + event.id"
                                                     variant="elevated" color="white" rounded>Learn More
                                                     <v-icon>mdi-arrow-right</v-icon></v-btn>
                                             </v-img>
@@ -82,10 +87,10 @@
         <v-parallax height="350" :src="quotePic" class="mt-10">
             <div class="quote">
                 <v-container>
-                    <h3 class="mt-10 mb-5 text-white" style="font-size: 40px; font-family: 'Sansita Swashed';">
+                    <h3 class="mt-10 mb-5 text-white" style="font-size: 40px; font-family: 'Mulish';">
                         {{ home.data.attributes.BibleVrs }}
                     </h3><br>
-                    <h4 class="text-center text-white mb-10" style="font-family: 'Sansita Swashed';">{{
+                    <h4 class="text-center text-white mb-10" style="font-family: 'Mulish';">{{
                         home.data.attributes.Quotebook }}</h4><br>
                 </v-container>
             </div>
@@ -93,8 +98,8 @@
 
         <v-container class="mt-10">
             <v-row>
-                <v-col cols="">
-                    <h1 class="text-uppercase">{{ home.data.attributes.TitleQuestion }}</h1>
+                <v-col cols="" lg="">
+                    <h1 style="font-family: 'Mulish';" class="text-uppercase">{{ home.data.attributes.TitleQuestion }}</h1>
                     <section>
                         <Markdown class="answer" :source="home.data.attributes.TitleAnswer" />
                         <!-- <p>

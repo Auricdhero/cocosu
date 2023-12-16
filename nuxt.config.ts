@@ -30,7 +30,8 @@ export default defineNuxtConfig({
       'Josefin+Slab': true,
       'Sansita+Swashed': true,
       'Tourney': true,
-      'Poppsins': true
+      'Poppsins': true,
+      'Mulish': true
     }
   },
   strapi: {
