@@ -72,8 +72,8 @@
                         no perfect people allowed</h1>
                 </v-col>
                 <v-col cols="auto" lg="8">
-                    <v-row>
-                        <v-col v-for="event in events.data.slice(0, 4).reverse()" :key="event.id" cols="" lg="6">
+                    <v-row class="ml-n10">
+                        <v-col v-for="event in events.data.slice(0, 4).reverse()" :key="event.id" cols="" lg="6" sm="6">
                             <nuxt-link style="text-decoration: none" :to="'events/' + event.id">
                                 <v-container>
                                     <v-hover v-slot="{ isHovering, props }">
@@ -107,13 +107,13 @@
             </v-row>
         </v-container>
 
-        <v-parallax height="350" :src="quotePic" class="mt-10">
+        <v-parallax :src="quotePic" class="mt-10 quote-par">
             <div class="quote">
                 <v-container>
-                    <h3 class="mt-10 mb-5 text-white" style="font-size: 40px; font-family: 'Mulish';">
+                    <h3 class="mt-16 text-white text-justify" style="font-size: 40px; font-family: 'Mulish';">
                         {{ home.data.attributes.BibleVrs }}
                     </h3><br>
-                    <h4 class="text-center text-white mb-10" style="font-family: 'Mulish';">{{
+                    <h4 class="text-center text-white" style="font-family: 'Mulish';">{{
                         home.data.attributes.Quotebook }}</h4><br>
                 </v-container>
             </div>
@@ -135,11 +135,29 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col>
+                <v-col cols="" sm="12" lg="6" md="12">
                     <v-img :src="'http://127.0.0.1:1337' + home.data.attributes.Answer2Img.data.attributes.url"></v-img>
                 </v-col>
-                <v-col>
-                    <Markdown :source="home.data.attributes.Answer2Body" />
+                <v-col cols="" sm="12" lg="6" md="12">
+                    <section>
+                        <h1 class="text-left">Who we are and our purpose</h1>
+                        <h3>We exist to help people find and follow Jesus seven days a week.</h3>
+                        <p class="text-justify">This is the “why” of what we do. We are convinced that every person needs
+                            and
+                            desires to know the grace and power of having an authentic, life-changing relationship with
+                            Jesus
+                            Christ. To achieve our purpose, we keep our focus on our core values: worship, ministry,
+                            evangelism,
+                            fellowship, and discipleship. </p>
+                        <v-row>
+                            <v-col cols="" lg="7" sm="6">
+                                <v-btn color="indigo-darken-4" rounded>LEARN MORE ABOUT US</v-btn>
+                            </v-col>
+                            <v-col cols="" lg="4" sm="6">
+                                <v-btn color="indigo-darken-4" rounded>OUR VISION</v-btn>
+                            </v-col>
+                        </v-row>
+                    </section>
                 </v-col>
             </v-row>
         </v-container>
@@ -147,13 +165,13 @@
             <v-container>
                 <h4 class="text-center mt-10">{{ home.data.attributes.aShortQuote }}</h4><br>
                 <v-row class="d-flex justify-center">
-                    <v-col cols="1">
+                    <v-col cols="3">
                         <v-btn icon="mdi-facebook"></v-btn>
                     </v-col>
-                    <v-col cols="1">
+                    <v-col cols="3">
                         <v-btn icon="mdi-twitter"></v-btn>
                     </v-col>
-                    <v-col cols="1">
+                    <v-col cols="3">
                         <v-btn icon="mdi-youtube"></v-btn>
                     </v-col>
                 </v-row>
@@ -162,11 +180,11 @@
 
         <v-container>
             <v-row class="mt-10">
-                <v-col>
+                <v-col cols="" sm="12" lg="6">
                     <v-img :src="'http://127.0.0.1:1337' + home.data.attributes.sermonApp.data.attributes.url"
                         height="600"></v-img>
                 </v-col>
-                <v-col class="mt-10">
+                <v-col cols="" sm="12" lg="6" class="mt-10">
                     <h3 class="text-left">{{ home.data.attributes.SermonAppTitle }}</h3>
                     <p>{{ home.data.attributes.appDescription }}</p>
                 </v-col>
@@ -182,6 +200,12 @@ import Markdown from 'vue3-markdown-it'
 const { data: events } = await useFetch('http://127.0.0.1:1337/api/events?populate=*');
 const homePage = await useFetch('http://127.0.0.1:1337/api/home-page?populate=*')
 const home = homePage.data.value;
+
+
+
+function countDownFxn() {
+
+}
 // const eventsDate = useDateFormat(events.data.attributes.Date);
 // console.log(events)
 </script>
@@ -192,6 +216,7 @@ const home = homePage.data.value;
 
 .quote {
     background-color: rgba(20, 10, 10, 0.54);
+    height: 100%;
 }
 
 .welcomeSec span {
@@ -217,5 +242,8 @@ const home = homePage.data.value;
     h1.welcomeSec span {
         font-size: 2.4rem;
     }
-}
-</style>
+
+    .quote-par {
+        height: 800px;
+    }
+}</style>

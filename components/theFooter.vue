@@ -57,7 +57,7 @@
                             <li>Osu Opposite St James Catholic Church</li>
                         </ul>
                     </v-col>
-                    <v-col>
+                    <!-- <v-col>
                         <h3>Download The App</h3>
                         <v-row>
                             <v-col>
@@ -67,7 +67,7 @@
                                 <v-btn><v-icon>mdi-play</v-icon> Download on <br> Google PlayStore</v-btn>
                             </v-col>
                         </v-row>
-                    </v-col>
+                    </v-col> -->
 
                 </v-row>
 
