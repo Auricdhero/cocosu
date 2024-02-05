@@ -12,6 +12,7 @@
                 </v-col>
             </v-row>
         </v-container>
+        
         <div class="value">
             <v-container>
                 <v-row v-for="value in values.data" :key="value.id">
