@@ -99,23 +99,23 @@
                                             class="mx-auto d-flex justify-center" width="350">
                                             <!-- <h1>{{ event.attributes.Name }}</h1> -->
                                             <v-img :src="'http://127.0.0.1:1337' +
-                                                event.attributes.Flyer.data.attributes.url
+                                                event.attributes.Image.data.attributes.url
                                                 " gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover>
                                                 <v-container class="ma-4" style="background-color: ">
                                                     <h3 class="text-white d-flex justify-center">
-                                                        {{ event.attributes.Name }}
+                                                        {{ event.attributes.Title }}
                                                     </h3>
                                                     <v-divider color="white"></v-divider>
-                                                    <h5 class="text-white d-flex justify-center">
+                                                    <!-- <h5 class="text-white d-flex justify-center">
                                                         {{ event.attributes.Location }}
-                                                    </h5>
+                                                    </h5> -->
                                                     <h5 class="text-white d-flex justify-center" v-text="useDateFormat(
                                                         event.attributes.Date,
                                                         'MMMM D, YYYY'
                                                     )
                                                         "></h5>
                                                 </v-container>
-                                                <v-btn class="ma-15 d-flex justify-center" :to="'/events/' + event.id"
+                                                <v-btn class="ma-15 d-flex justify-center" :to="'/music/' + event.id"
                                                     variant="elevated" color="white" rounded>Learn More
                                                     <v-icon>mdi-arrow-right</v-icon></v-btn>
                                             </v-img>
