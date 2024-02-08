@@ -32,6 +32,8 @@
         <div class="pt-6" style="background: rgb(50, 92, 219)">
             <v-container>
                 <h2 class="text-center text-uppercase text-white">service begins:</h2>
+
+                <h4 class="text-center-text-white"></h4>
                 <br />
                 <div class="countdown text-white text-center" style="font-weight: bold; font-size: 1.5rem">
                     <v-row>
@@ -239,14 +241,15 @@ const homePage = await useFetch(
 );
 const home = homePage.data.value;
 
-function countDownFunc() {
-    const sec = 1000;
-    const mins = sec * 60;
-    const hrs = mins * 60;
-    const day = hrs * 24;
-    const wk = day * 7;
+const d = new Date()
+const sec = 1000;
+const mins = sec * 60;
+const hrs = mins * 60;
+const day = hrs * 24;
+const wk = day * 7;
 
-    const sun = new Date();
+function minCountDown() {
+    
 }
 </script>
 <style>
@@ -278,13 +281,14 @@ function countDownFunc() {
     font-family: "Sansita Swashed";
 }
 
+/* .quote-par {
+    height: 50em;
+} */
 @media (max-width: 360px) {
     h1.welcomeSec span {
         font-size: 2.4rem;
     }
 
-    .quote-par {
-        height: 800px;
-    }
+
 }
 </style>

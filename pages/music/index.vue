@@ -3,16 +3,16 @@
         <v-container class="mt-16">
             <v-row>
                 <v-col cols="6" v-for="event in events.data" :key="event.id">
-                    <nuxt-link style="text-decoration: none;" :to="'/events/' + event.id">
+                    <nuxt-link style="text-decoration: none;" :to="'/music/' + event.id">
                         <v-container>
                             <v-hover v-slot="{ isHovering, props }">
                                 <v-card v-bind="props" :elevation="isHovering ? 24 : 2">
                                     <v-img height="300"
-                                        :src="'http://127.0.0.1:1337' + event.attributes.Flyer.data.attributes.url"
+                                        :src="'http://127.0.0.1:1337' + event.attributes.Image.data.attributes.url"
                                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover>
-                                        <h3 class="text-white mt-5 ml-5">{{ event.attributes.Name }}</h3>
+                                        <h3 class="text-white mt-5 ml-5">{{ event.attributes.Title }}</h3>
                                         <v-divider color="white"></v-divider>
-                                        <h5 class="text-white mt-5 ml-5">{{ event.attributes.Location }}</h5>
+                                        <!-- <h5 class="text-white mt-5 ml-5">{{ event.attributes.Location }}</h5> -->
                                         <h5 class="text-white mt-5 ml-5"
                                             v-text="useDateFormat(event.attributes.Date, 'MMMM D, YYYY')"></h5>
                                     </v-img>
