@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+        <nav style="height: 5em;" class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <v-spacer></v-spacer>
