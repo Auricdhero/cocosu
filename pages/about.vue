@@ -11,8 +11,8 @@
                     </v-col>
                     <v-col>
                         <v-card height="400">
-                            <v-container>
-                                <h3 class="text-center text-uppercase">History</h3>
+                            <v-container class="d-flex justify-center align-center flex-column">
+                                <h3 class="text-uppercase">History</h3>
                                 <p class="text-justify">
                                     {{ about.data.attributes.history }}
                                 </p>
@@ -26,8 +26,8 @@
                 <v-row>
                     <v-col>
                         <v-card height="400">
-                            <v-container>
-                                <h3 class="text-center text-uppercase">values</h3>
+                            <v-container class="d-flex justify-center align-center flex-column">
+                                <h3 class="text-uppercase">values</h3>
                                 <p class="text-justify">{{ about.data.attributes.values }}</p>
                             </v-container>
                         </v-card>
@@ -46,8 +46,8 @@
                     </v-col>
                     <v-col>
                         <v-card height="400">
-                            <v-container>
-                                <h3 class="text-uppercase text-center">vision</h3>
+                            <v-container class="d-flex justify-center align-center flex-column">
+                                <h3 class="text-uppercase ">vision</h3>
                                 <p class="text-justify">{{ about.data.attributes.vision }}</p>
                             </v-container>
                         </v-card>
