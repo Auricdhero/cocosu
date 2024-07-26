@@ -1,38 +1,69 @@
 <template>
-    <div>
-        <v-container class="mt-10">
-            <v-row>
-                <v-col>
-                    <h1>{{ about.data.attributes.Purpose }}</h1>
-                    <p>{{ about.data.attributes.purposeDescription }}</p>
-                </v-col>
-                <v-col>
-                    <h1>{{ about.data.attributes.StrategyTitle }}</h1>
-                    <p>{{ about.data.attributes.StrategyDescription }}</p>
-                </v-col>
-            </v-row>
-        </v-container>
-        
-        <div class="value">
+    <div class="mt-16">
+        <h1 class="text-center text-uppercase mt-5">about us</h1>
+        <div class="about">
             <v-container>
-                <v-row v-for="value in values.data" :key="value.id">
+                <v-row>
                     <v-col>
-                        <h1>{{ value.id }}</h1>
-                        <h1>{{ value.attributes.Title }}</h1>
-                        <p>{{ value.attributes.Description }}</p>
+                        <v-img height="400"
+                            :src="'http://127.0.0.1:1337' + about.data.attributes.historyImg.data.attributes.url"
+                            cover></v-img>
+                    </v-col>
+                    <v-col>
+                        <v-card height="400">
+                            <v-container>
+                                <h3 class="text-center text-uppercase">History</h3>
+                                <p class="text-justify">
+                                    {{ about.data.attributes.history }}
+                                </p>
+                                <div class="d-flex justify-center">
+                                    <v-btn color="blue">Read More</v-btn>
+                                </div>
+                            </v-container>
+                        </v-card>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <v-card height="400">
+                            <v-container>
+                                <h3 class="text-center text-uppercase">values</h3>
+                                <p class="text-justify">{{ about.data.attributes.values }}</p>
+                            </v-container>
+                        </v-card>
+                    </v-col>
+                    <v-col>
+                        <v-img height="400"
+                            :src="'http://127.0.0.1:1337' + about.data.attributes.valuesPic.data.attributes.url"
+                            cover></v-img>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <v-img height="400"
+                            :src="'http://127.0.0.1:1337' + about.data.attributes.visionPic.data.attributes.url"
+                            cover></v-img>
+                    </v-col>
+                    <v-col>
+                        <v-card height="400">
+                            <v-container>
+                                <h3 class="text-uppercase text-center">vision</h3>
+                                <p class="text-justify">{{ about.data.attributes.vision }}</p>
+                            </v-container>
+                        </v-card>
                     </v-col>
                 </v-row>
             </v-container>
         </div>
-        <v-container>
-            <h1 class="text-center">{{ about.data.attributes.VisionTitle }}</h1>
-            <p class="text-center">{{ about.data.attributes.visionDescription }}</p>
-        </v-container>
     </div>
 </template>
 <script setup>
-const aboutPage = await useFetch('http://127.0.0.1:1337/api/about-page?populate=*');
-const about = aboutPage.data.value;
-
-const { data: values } = await useFetch('http://127.0.0.1:1337/api/values?populate=*');
+const config = useRuntimeConfig();
+const { data: about } = await useFetch('http://127.0.0.1:1337/api/about-page?populate=*');
+console.log(about)
 </script>
+<style>
+.about {
+    background-color: rgb(63, 63, 145);
+}
+</style>
