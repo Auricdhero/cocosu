@@ -31,7 +31,7 @@
                             <v-card-title class="text-center text-white">{{ sermon.attributes.Title }}</v-card-title><br>
                             <v-card-subtitle class="text-center text-white">{{ sermon.attributes.Sermonist }}</v-card-subtitle>
                             <div class="mx-auto">
-                                <v-btn variant="outlined" color="blue">Read More</v-btn>
+                                <v-btn :to="'/sermons/'+sermon.id" variant="outlined" color="blue">Read More</v-btn>
                             </div>
                         </v-card-item>
                     </v-card>
