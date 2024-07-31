@@ -24,9 +24,16 @@
             </v-carousel>
 
             <v-slide-group v-model="model" class="pa-4" selected-class="bg-success" show-arrows>
-                <v-slide-group-item v-for="sermon in sermons" :key="sermon" v-slot="{ selectedClass }">
-                    <v-card :class="['ma-4', selectedClass]" color="grey-lighten-1" height="400" width="400">
-                        <v-img :src="'http://127.0.0.1:1337'+ sermon.attri"></v-img>
+                <v-slide-group-item v-for="sermon in sermons.data" :key="sermon.id" v-slot="{ selectedClass }">
+                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="grey-lighten-1" height="350" width="350">
+                        <v-img :src="'http://127.0.0.1:1337'+ sermon.attributes.Picture.data.attributes.url"></v-img>
+                        <v-card-item>
+                            <v-card-title class="text-center">{{ sermon.attributes.Title }}</v-card-title><br>
+                            <v-card-subtitle class="text-center">{{ sermon.attributes.Sermonist }}</v-card-subtitle>
+                            <div class="mx-auto">
+                                <v-btn>Read More</v-btn>
+                            </div>
+                        </v-card-item>
                     </v-card>
                 </v-slide-group-item>
             </v-slide-group>
