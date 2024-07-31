@@ -25,13 +25,13 @@
 
             <v-slide-group v-model="model" class="pa-4" selected-class="bg-success" show-arrows>
                 <v-slide-group-item v-for="sermon in sermons.data" :key="sermon.id" v-slot="{ selectedClass }">
-                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="grey-lighten-1" height="350" width="350">
+                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="blue-lighten-2" height="350" width="350">
                         <v-img :src="'http://127.0.0.1:1337'+ sermon.attributes.Picture.data.attributes.url"></v-img>
                         <v-card-item>
-                            <v-card-title class="text-center">{{ sermon.attributes.Title }}</v-card-title><br>
-                            <v-card-subtitle class="text-center">{{ sermon.attributes.Sermonist }}</v-card-subtitle>
+                            <v-card-title class="text-center text-white">{{ sermon.attributes.Title }}</v-card-title><br>
+                            <v-card-subtitle class="text-center text-white">{{ sermon.attributes.Sermonist }}</v-card-subtitle>
                             <div class="mx-auto">
-                                <v-btn>Read More</v-btn>
+                                <v-btn variant="outlined" color="blue">Read More</v-btn>
                             </div>
                         </v-card-item>
                     </v-card>
