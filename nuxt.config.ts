@@ -47,11 +47,10 @@ export default defineNuxtConfig({
 
 
   runtimeConfig: {
-    public: {
-      apiBase: process.env.API_URL
-    },
-    strapi:{
-      url: process.env.API_URL
+    public:{
+      strapi:{
+        url: process.env.API_URL
+      }
     }
   },
   imports: {

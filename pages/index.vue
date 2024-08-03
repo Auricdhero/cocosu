@@ -1,6 +1,6 @@
 <template>
     <div class="mt-16">
-        <v-parallax height="700" :src="'http://127.0.0.1:1337' + home.data.attributes.WelcomeImg.data.attributes.url">
+        <v-parallax height="700" :src="config.public.strapi.url + home.data.attributes.WelcomeImg.data.attributes.url">
             <div style="background-color: rgba(7, 89, 195, 0.54);"
                 class="d-flex flex-column fill-height justify-center align-center">
                 <h1 class="text-center text-uppercase text-white">osu church of christ welcomes you!</h1>
@@ -18,7 +18,7 @@
         </div>
         <v-window v-model="window" show-arrows>
             <v-window-item v-for="sermon in sermons.data" :key="sermon.id">
-                <v-parallax height="350" :src="'http://127.0.0.1:1337' + sermon.attributes.Picture.data.attributes.url">
+                <v-parallax height="350" :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url">
                     <div style="background-color: rgba(0, 0, 0, 0.515);"
                         class="fill-height d-flex flex-column align-center justify-center">
                         <h1 class="text-white">{{ sermon.attributes.Title }}</h1>
@@ -51,12 +51,12 @@
 import { useDateFormat } from "@vueuse/core";
 import quotePic from "/img/quote_bg.jpg";
 import Markdown from "vue3-markdown-it";
-// const config = useRuntimeConfig();
+const config = useRuntimeConfig()
 const { data: home } = await useFetch(
-    "http://127.0.0.1:1337/api/home-page?populate=*"
+    config.public.strapi.url+"/api/home-page?populate=*"
 );
-
-const { data: sermons } = await useFetch("http://127.0.0.1:1337/api/sermons?populate=*");
+console.log(config)
+const { data: sermons } = await useFetch(config.public.strapi.url+"/api/sermons?populate=*");
 const window = ref(0);
 // console.log(sermons)
 

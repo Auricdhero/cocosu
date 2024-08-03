@@ -6,7 +6,7 @@
                 <v-row>
                     <v-col>
                         <v-img height="400"
-                            :src="'http://127.0.0.1:1337' + about.data.attributes.historyImg.data.attributes.url"
+                            :src="config.public.strapi.url + about.data.attributes.historyImg.data.attributes.url"
                             cover></v-img>
                     </v-col>
                     <v-col>
@@ -34,14 +34,14 @@
                     </v-col>
                     <v-col>
                         <v-img height="400"
-                            :src="'http://127.0.0.1:1337' + about.data.attributes.valuesPic.data.attributes.url"
+                            :src="config.public.strapi.url + about.data.attributes.valuesPic.data.attributes.url"
                             cover></v-img>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col>
                         <v-img height="400"
-                            :src="'http://127.0.0.1:1337' + about.data.attributes.visionPic.data.attributes.url"
+                            :src="config.public.strapi.url + about.data.attributes.visionPic.data.attributes.url"
                             cover></v-img>
                     </v-col>
                     <v-col>
@@ -59,7 +59,7 @@
 </template>
 <script setup>
 const config = useRuntimeConfig();
-const { data: about } = await useFetch('http://127.0.0.1:1337/api/about-page?populate=*');
+const { data: about } = await useFetch(config.public.strapi.url + '/api/about-page?populate=*');
 console.log(about)
 </script>
 <style>

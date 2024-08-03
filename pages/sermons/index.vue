@@ -11,7 +11,7 @@
         <div>
             <v-carousel hide-delimiters show-arrows>
                 <v-carousel-item v-for="sermon in sermons.data" :key="sermon.id"
-                    :src="'http://127.0.0.1:1337' + sermon.attributes.Picture.data.attributes.url" cover>
+                    :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url" cover>
                     <div class="sermonSlide d-flex flex-column fill-height align-center justify-center">
                         <h3 class="text-center text-uppercase text-white">{{ sermon.attributes.Title }}</h3>
                         <!-- <p class="text-capitalize text-white">{{ sermon.attributes.Notes }}</p><br> -->
@@ -25,13 +25,17 @@
 
             <v-slide-group v-model="model" class="pa-4" selected-class="bg-success" show-arrows>
                 <v-slide-group-item v-for="sermon in sermons.data" :key="sermon.id" v-slot="{ selectedClass }">
-                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="blue-lighten-2" height="350" width="350">
-                        <v-img :src="'http://127.0.0.1:1337'+ sermon.attributes.Picture.data.attributes.url"></v-img>
+                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="blue-lighten-2" height="350"
+                        width="350">
+                        <v-img :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url"></v-img>
                         <v-card-item>
-                            <v-card-title class="text-center text-white">{{ sermon.attributes.Title }}</v-card-title><br>
-                            <v-card-subtitle class="text-center text-white">{{ sermon.attributes.Sermonist }}</v-card-subtitle>
+                            <v-card-title class="text-center text-white">{{ sermon.attributes.Title
+                                }}</v-card-title><br>
+                            <v-card-subtitle class="text-center text-white">{{ sermon.attributes.Sermonist
+                                }}</v-card-subtitle>
                             <div class="mx-auto">
-                                <v-btn :to="'/sermons/'+sermon.id" variant="outlined" color="blue">Read More</v-btn>
+                                <v-btn :to="'/sermons/' + sermon.attributes.slug" variant="outlined" color="blue">Read
+                                    More</v-btn>
                             </div>
                         </v-card-item>
                     </v-card>
@@ -42,7 +46,8 @@
 </template>
 <script setup>
 const route = useRoute();
-const { data: sermons } = await useFetch('http://127.0.0.1:1337/api/sermons?populate=*');
+const config = useRuntimeConfig()
+const { data: sermons } = await useFetch(config.public.strapi.url + '/api/sermons?populate=*');
 const search = ref('');
 const model = ref('');
 </script>
