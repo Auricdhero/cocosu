@@ -26,11 +26,12 @@
 <script setup>
 const route = useRoute();
 const config = useRuntimeConfig();
-import Markdown from 'vue3-markdown-it'
-const { data: sermon } = await useFetch(config.public.strapi.url + '/api/sermons/' + route.params.slug + '?populate=*');
+import Markdown from 'vue3-markdown-it';
 
+const { data: sermon } = await useFetch(config.public.strapi.url + '/api/sermons/' + route.params.slug + '?populate=*');
+console.log(sermon)
 
 function openFile() {
-    window.open(config.public.strapi.url + sermon.data.attributes.Slides.data.attributes.url)
+    open(config.public.strapi.url + sermon.data.attributes.Slides.data.attributes.url)
 }
 </script>

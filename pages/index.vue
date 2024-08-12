@@ -31,10 +31,10 @@
         </v-window>
         <v-container>
             <v-row no-gutters>
-                <v-col>
+                <v-col cols="" sm="12" lg="6">
                     <v-img height="500" src="/img/preach.jpeg" cover></v-img>
                 </v-col>
-                <v-col class="preach">
+                <v-col cols="" sm="12" lg="6" class="preach">
                     <v-container class="mt-12">
                         <h2 class="text-uppercase text-white">Evg John Tamakloe</h2><br>
                         <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum vel
@@ -48,14 +48,11 @@
     </div>
 </template>
 <script setup>
-import { useDateFormat } from "@vueuse/core";
-import quotePic from "/img/quote_bg.jpg";
-import Markdown from "vue3-markdown-it";
 const config = useRuntimeConfig()
 const { data: home } = await useFetch(
     config.public.strapi.url+"/api/home-page?populate=*"
 );
-console.log(config)
+// console.log(config)
 const { data: sermons } = await useFetch(config.public.strapi.url+"/api/sermons?populate=*");
 const window = ref(0);
 // console.log(sermons)

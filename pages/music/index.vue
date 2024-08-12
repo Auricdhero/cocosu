@@ -8,7 +8,7 @@
                             <v-hover v-slot="{ isHovering, props }">
                                 <v-card v-bind="props" :elevation="isHovering ? 24 : 2">
                                     <v-img height="300"
-                                        :src="'http://127.0.0.1:1337' + event.attributes.Image.data.attributes.url"
+                                        :src="config.public.strapi.url + event.attributes.Image.data.attributes.url"
                                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover>
                                         <h3 class="text-white mt-5 ml-5">{{ event.attributes.Title }}</h3>
                                         <v-divider color="white"></v-divider>
@@ -28,5 +28,5 @@
 <script setup>
 import { useDateFormat } from '@vueuse/core';
 
-const { data: events } = await useFetch('http://127.0.0.1:1337/api/events?populate=*');
+const { data: events } = await useFetch(config.public.strapi.url+'/api/events?populate=*');
 </script>

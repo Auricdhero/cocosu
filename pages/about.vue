@@ -4,12 +4,12 @@
         <div class="about">
             <v-container>
                 <v-row>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-img height="400"
                             :src="config.public.strapi.url + about.data.attributes.historyImg.data.attributes.url"
                             cover></v-img>
                     </v-col>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-card height="400">
                             <v-container class="d-flex justify-center align-center flex-column">
                                 <h3 class="text-uppercase">History</h3>
@@ -24,7 +24,7 @@
                     </v-col>
                 </v-row>
                 <v-row>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-card height="400">
                             <v-container class="d-flex justify-center align-center flex-column">
                                 <h3 class="text-uppercase">values</h3>
@@ -32,19 +32,19 @@
                             </v-container>
                         </v-card>
                     </v-col>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-img height="400"
                             :src="config.public.strapi.url + about.data.attributes.valuesPic.data.attributes.url"
                             cover></v-img>
                     </v-col>
                 </v-row>
                 <v-row>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-img height="400"
                             :src="config.public.strapi.url + about.data.attributes.visionPic.data.attributes.url"
                             cover></v-img>
                     </v-col>
-                    <v-col>
+                    <v-col cols="" sm="12" lg="6" md="6">
                         <v-card height="400">
                             <v-container class="d-flex justify-center align-center flex-column">
                                 <h3 class="text-uppercase ">vision</h3>
