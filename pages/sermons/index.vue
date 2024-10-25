@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-16" height="600">
+    <div height="600">
         <h1 class="text-center text-uppercase mt-5">sermons</h1>
         <!-- <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa sunt quam ad sit! Incidunt
             iusto vel dolore vitae laborum libero eaque. Quaerat maxime pariatur sequi soluta consequuntur a, sit odio.
@@ -43,7 +43,7 @@
             </v-slide-group> -->
             <v-container>
                 <v-row>
-                    <v-col v-for="sermon in sermons.data.reverse()" :key="sermon.id" cols="auto" lg="4" md="3" sm="2">
+                    <v-col v-for="sermon in sermons.data.reverse()" :key="sermon.id" cols="auto" lg="4" md="4" sm="2">
                         <v-card height="370">
                             <v-img height="200" width="auto"
                                 :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url"></v-img>

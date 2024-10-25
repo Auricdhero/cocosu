@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from 'nuxt/config'
+// import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
 
   vite: {
     define: {
-      "process.env.DEBUG": true,
+      "process.env.DEBUG": false,
     },
   },
 

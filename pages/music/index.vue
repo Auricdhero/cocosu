@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-container class="mt-16">
+        <v-container>
             <v-row>
                 <v-col cols="6" v-for="event in events.data" :key="event.id">
                     <nuxt-link style="text-decoration: none;" :to="'/music/' + event.id">
@@ -27,6 +27,8 @@
 </template>
 <script setup>
 import { useDateFormat } from '@vueuse/core';
+
+const config = useRuntimeConfig();
 
 const { data: events } = await useFetch(config.public.strapi.url+'/api/events?populate=*');
 </script>

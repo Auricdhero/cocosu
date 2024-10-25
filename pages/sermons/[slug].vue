@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-parallax class="mt-15" :src="config.public.strapi.url + sermon.data.attributes.Picture.data.attributes.url"
+        <v-parallax :src="config.public.strapi.url + sermon.data.attributes.Picture.data.attributes.url"
             height="290">
             <div style="background-color: rgba(52, 67, 238, 0.555); height: 100%;">
                 <v-container>

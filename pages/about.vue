@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-16">
+    <div>
         <h1 class="text-center text-uppercase mt-5">about us</h1>
         <div class="about">
             <v-container>
@@ -64,6 +64,6 @@ console.log(about)
 </script>
 <style>
 .about {
-    background-color: rgb(63, 63, 145);
+    background-color: rgb(253, 253, 255);
 }
 </style>

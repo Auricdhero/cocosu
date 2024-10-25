@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-16">
+    <div>
         <v-parallax height="700" :src="config.public.strapi.url + home.data.attributes.WelcomeImg.data.attributes.url">
             <div style="background-color: rgba(7, 89, 195, 0.54);"
                 class="d-flex flex-column fill-height justify-center align-center">

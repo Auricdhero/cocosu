@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-parallax class="mt-15" :src="config.public.strapi.url + event.data.attributes.Image.data.attributes.url"
+        <v-parallax :src="config.public.strapi.url + event.data.attributes.Image.data.attributes.url"
             height="290">
             <div style="background: rgba(52, 67, 238, 0.555); height: 100%;">
                 <v-container>
@@ -20,6 +20,7 @@
 <script setup>
 import Markdown from 'vue3-markdown-it'
 import { useDateFormat } from '@vueuse/core'
+const config = useRuntimeConfig();
 const route = useRoute();
 const { data: event } = await useFetch(config.public.strapi.url+'/api/events/' + route.params.id + '?populate=*');
 </script>
