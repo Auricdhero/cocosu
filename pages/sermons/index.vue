@@ -25,7 +25,8 @@
                             </v-col>
                             <v-col cols="10">
                                 <h3 class="">{{ sermon.attributes.Title }}</h3>
-                                <p class="text-muted">{{ sermon.attributes }}</p>
+                                <p class="text-muted">{{ useDateFormat(sermon.attributes.createdAt, "D MMM YYYY") }}</p>
+                                <p class="text-dark note">{{ sermon.attributes.Notes }}</p>
                             </v-col>
                         </v-row>
                     </NuxtLink>
@@ -39,7 +40,7 @@
     </div>
 </template>
 <script setup>
-// import 
+import { useDateFormat } from '@vueuse/core';
 const route = useRoute();
 const config = useRuntimeConfig()
 const { data: sermons } = await useFetch(config.public.strapi.url + '/api/sermons?populate=*');
@@ -54,5 +55,9 @@ const searchSermon = computed(() => {
 .sermonSlide {
     background-color: rgba(54, 55, 56, 0.459);
     height: 100%;
+}
+
+.note{
+    text-overflow: ellipsis;
 }
 </style>
