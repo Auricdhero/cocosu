@@ -16,7 +16,7 @@
                                 <p class="text-justify">
                                     {{ about.data.attributes.history }}
                                 </p>
-                                <div class="d-flex justify-center">
+                                <div class="">
                                     <v-btn color="blue">Read More</v-btn>
                                 </div>
                             </v-container>
@@ -64,6 +64,6 @@ console.log(about)
 </script>
 <style>
 .about {
-    background-color: rgb(253, 253, 255);
+    background-color: rgb(225, 225, 255);
 }
 </style>

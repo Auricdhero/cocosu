@@ -1,69 +1,45 @@
 <template>
-    <div height="600">
-        <h1 class="text-center text-uppercase mt-5">sermons</h1>
-        <!-- <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa sunt quam ad sit! Incidunt
-            iusto vel dolore vitae laborum libero eaque. Quaerat maxime pariatur sequi soluta consequuntur a, sit odio.
-        </p> -->
-        <v-text-field v-model="search" class="mx-auto" density="comfortable" placeholder="Search"
-            prepend-inner-icon="mdi-magnify" style="max-width: 300px;" variant="solo" clearable
-            hide-details></v-text-field><br>
-        <span>{{ search }}</span>
+    <div>
+        <v-parallax height="350" src="/img/givingBg.jpg">
+            <div style="background-color: rgba(7, 89, 195, 0.54);"
+                class="d-flex flex-column fill-height justify-center align-center">
+                <h1 class="text-center text-uppercase text-white">Sermons</h1>
+            </div>
+        </v-parallax>
+        <v-spacer></v-spacer>
+        <v-container>
+            <v-card class="mx-auto" variant="plain" max-width="400">
+                <v-card-text>
+                    <v-text-field label="Search Sermon" variant="underlined" append-inner-icon="mdi-magnify"
+                        hide-details single-line @click:append-inner="onClick"></v-text-field>
+                </v-card-text>
+            </v-card><br>
 
-        <div>
-            <!-- <v-carousel hide-delimiters show-arrows>
-                <v-carousel-item v-for="sermon in sermons.data" :key="sermon.id"
-                    :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url" cover>
-                    <div class="sermonSlide d-flex flex-column fill-height align-center justify-center">
-                        <h3 class="text-center text-uppercase text-white">{{ sermon.attributes.Title }}</h3>
-                        <p class="text-muted text-white text-uppercase">{{ sermon.attributes.Sermonist }}</p>
-                        <v-btn class="mb-16" icon="mdi-play" variant="outlined" color="white"></v-btn>
+            <v-row>
+                <v-col cols="12" v-for="sermon in sermons.data.reverse()" :key="sermon.id">
+                    <NuxtLink class="text-decoration-none" :to="'/sermons/' + sermon.attributes.slug">
+                        <v-row>
+                            <v-col cols="2">
+                                <v-img :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url"
+                                    max-height="150"></v-img>
+                            </v-col>
+                            <v-col cols="10">
+                                <h3 class="">{{ sermon.attributes.Title }}</h3>
+                                <p class="text-muted">{{ sermon.attributes }}</p>
+                            </v-col>
+                        </v-row>
+                    </NuxtLink>
 
-                        <v-btn icon="mdi-share-variant" variant="text" color="white"></v-btn>
-                    </div>
-                </v-carousel-item>
-            </v-carousel> -->
+                    <v-divider></v-divider>
+                </v-col>
+            </v-row>
+        </v-container>
 
-            <!-- <v-slide-group v-model="model" class="pa-4" selected-class="bg-success" show-arrows>
-                <v-slide-group-item v-for="sermon in sermons.data" :key="sermon.id" v-slot="{ selectedClass }">
-                    <v-card elevation="1" :class="['ma-4', selectedClass]" color="blue-lighten-2" height="350"
-                        width="350">
-                        <v-img :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url"></v-img>
-                        <v-card-item>
-                            <v-card-title class="text-center text-white">{{ sermon.attributes.Title
-                                }}</v-card-title><br>
-                            <v-card-subtitle class="text-center text-white">{{ sermon.attributes.Sermonist
-                                }}</v-card-subtitle>
-                            <div class="mx-auto">
-                                <v-btn :to="'/sermons/' + sermon.attributes.slug" variant="outlined" color="blue">Read
-                                    More</v-btn>
-                            </div>
-                        </v-card-item>
-                    </v-card>
-                </v-slide-group-item>
-            </v-slide-group> -->
-            <v-container>
-                <v-row>
-                    <v-col v-for="sermon in sermons.data.reverse()" :key="sermon.id" cols="auto" lg="4" md="4" sm="2">
-                        <v-card height="370">
-                            <v-img height="200" width="auto"
-                                :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url"></v-img>
-                            <v-card-title class="text-center">{{ sermon.attributes.Title }}</v-card-title>
-                            <p class="text-center text-muted">{{ sermon.attributes.Sermonist }}</p>
-                            <div class="d-flex justify-center">
-                                <v-btn style="width: 50%;" variant="outlined" color="blue"
-                                    :to="'/sermons/' + sermon.attributes.slug">View Sermon</v-btn>
-                            </div>
-                        </v-card>
-                    </v-col>
-                </v-row><br>
-                <div class="d-flex justify-center">
-                    <v-btn variant="outlined" color="blue">More Sermons</v-btn>
-                </div>
-            </v-container>
-        </div>
+
     </div>
 </template>
 <script setup>
+// import 
 const route = useRoute();
 const config = useRuntimeConfig()
 const { data: sermons } = await useFetch(config.public.strapi.url + '/api/sermons?populate=*');
