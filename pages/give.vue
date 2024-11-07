@@ -1,18 +1,20 @@
 <template>
     <div>
-        <div class="mt-10 text-center welcomeGive" style="background: url('img/givingBg.jpg') rgba(10, 35, 136, 0.919); ">
+        <div class="mt-10 text-center welcomeGive"
+            style="background: url('img/givingBg.jpg') rgba(10, 35, 136, 0.919); ">
             <v-container class="pa-10">
-                <h1 class="text-white text-uppercase">trust god an watch him move</h1>
-                <p class="text-white">If you are part of our church family or simply share our heart for spreading the truth
+                <h1 class="text-white text-uppercase">trust god and watch him move</h1>
+                <p class="text-white">If you are part of our church family or simply share our heart for spreading the
+                    truth
                     of
-                    the Gospel to San Diego and beyond, we welcome your tithe, offering, or financial gift. Online giving is
+                    the Gospel to San Diego and beyond, we welcome your offering, or financial gift. Online giving is
                     quick, convenient, and completely secure.</p>
-                <v-btn rounded>Give Now</v-btn>
+                <!-- <v-btn rounded>Give Now</v-btn> -->
             </v-container>
         </div>
         <v-container>
-            <h1 class="text-center text-uppercase">ways to give</h1><br>
-            <v-row>
+            <h1 class="text-center text-uppercase">give</h1><br>
+            <!-- <v-row>
                 <v-col cols="5">
                     <v-card color="light-blue-lighten-5" height="250" elevation="0">
                         <v-container class="text-center">
@@ -34,12 +36,29 @@
                         </v-container>
                     </v-card>
                 </v-col>
-            </v-row>
+            </v-row> -->
+            <v-sheet elevation="1" class="mx-auto" width="700" height="400" rounded>
+                <div class="d-flex flex-column justify-content-center">
+                    <v-form class="pa-5">
+                        <v-label>Full Name</v-label>
+                        <v-text-field type="text" label="George Hagan"></v-text-field>
+                        <v-label>Email</v-label>
+                        <v-text-field type="email" label="georgehagan@gmail.com"></v-text-field>
+                        <v-label>Amount</v-label>
+                        <v-text-field type="number" label="GHS 500.00"></v-text-field>
+                        <div class="d-flex justify-center">
+                            <v-btn variant="tonal" color="blue-lighten-1" rounded>Give</v-btn>
+                        </div>
+                    </v-form>
+                </div>
+
+            </v-sheet>
+
         </v-container><br>
         <div style="background-color: rgb(204, 204, 204);">
             <v-container>
                 <h1 class="text-center">FAQ's</h1>
-                <v-expansion-panels  class="mb-10" variant="popout">
+                <v-expansion-panels class="mb-10" variant="popout">
                     <v-expansion-panel title="What kind of organization is Osu Church of Christ?"
                         text="Osu Church is a non-profit organization that aims at winning souls for God and giving back to the community as per the blessings of God."></v-expansion-panel>
                     <v-expansion-panel title="What we do with our giving?"

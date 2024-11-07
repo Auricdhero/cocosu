@@ -60,6 +60,6 @@ function formatDuration(seconds) {
     return new Date(1000 * seconds).toISOString().slice(14, 19)
 }
 function openFile() {
-    open(config.public.strapi.url + sermon.attributes.Slides.data.attributes.url)
+    open(config.public.strapi.url + sermon.value.data.attributes.Slides.data.attributes.url)
 }
 </script>
