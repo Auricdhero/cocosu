@@ -48,7 +48,6 @@ const route = useRoute();
 const config = useRuntimeConfig()
 const { data: sermons } = await useFetch(config.public.strapi.url + '/api/sermons?populate=*');
 const searchSermon = ref('');
-const model = ref('');
 
 
 </script>
