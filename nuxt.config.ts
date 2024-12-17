@@ -31,7 +31,10 @@ export default defineNuxtConfig({
       'Sansita+Swashed': true,
       'Tourney': true,
       'Poppsins': true,
-      'Mulish': true
+      'Mulish': true,
+      'Rubik': true,
+      'Lato': true,
+      'Dancing Script':true
     }
   },
   strapi: {

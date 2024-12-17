@@ -3,13 +3,13 @@
         <v-parallax height="700" :src="config.public.strapi.url + home.data.attributes.WelcomeImg.data.attributes.url">
             <div style="background-color: rgba(7, 89, 195, 0.54);"
                 class="d-flex flex-column fill-height justify-center align-center">
-                <h1 class="text-center text-uppercase text-white">osu church of christ welcomes you!</h1>
-                <h4 class="text-center text-uppercase text-white"><q>Greet one another with a Holy kiss. The Churches of
+                <h1 class="text-center text-uppercase text-white" style="font-family: Lato; font-size: 3.5em;">osu church of christ welcomes you!</h1>
+                <h4 class="text-center text-uppercase text-white"><q class="quote">Greet one another with a Holy kiss. The Churches of
                         Christ
                         salutes
                         you.</q> <br>Rom 16:16</h4><br>
 
-                <v-btn color="blue">Join Us</v-btn>
+                <v-btn color="blue" :onclick="openMap">Join Us</v-btn>
             </div>
         </v-parallax>
         <div class="ltSermons">
@@ -18,7 +18,8 @@
         </div>
         <v-window v-model="window" show-arrows>
             <v-window-item v-for="sermon in sermons.data" :key="sermon.id">
-                <v-parallax height="350" :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url">
+                <v-parallax height="350"
+                    :src="config.public.strapi.url + sermon.attributes.Picture.data.attributes.url">
                     <div style="background-color: rgba(0, 0, 0, 0.515);"
                         class="fill-height d-flex flex-column align-center justify-center">
                         <h1 class="text-white">{{ sermon.attributes.Title }}</h1>
@@ -37,7 +38,8 @@
                 <v-col cols="" sm="12" lg="6" class="preach">
                     <v-container class="mt-12">
                         <h2 class="text-uppercase text-white">Evg John Tamakloe</h2><br>
-                        <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum vel
+                        <p class="text-justify text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptatum vel
                             qui necessitatibus facere nesciunt at, nihil tenetur, aperiam nam quae pariatur culpa
                             voluptates sit unde atque consectetur. Debitis, autem numquam?</p><br>
                         <v-btn variant="tonal" color="white">Meet Our Leaders</v-btn>
@@ -50,13 +52,16 @@
 <script setup>
 const config = useRuntimeConfig()
 const { data: home } = await useFetch(
-    config.public.strapi.url+"/api/home-page?populate=*"
+    config.public.strapi.url + "/api/home-page?populate=*"
 );
 // console.log(config)
-const { data: sermons } = await useFetch(config.public.strapi.url+"/api/sermons?populate=*");
-const window = ref(0);
+const { data: sermons } = await useFetch(config.public.strapi.url + "/api/sermons?populate=*");
+
 // console.log(sermons)
 
+function openMap(){
+    window.open("https://maps.app.goo.gl/pBQpexXwj6TLVYLVA", "Navigate To Church", "width=900, height=900")
+};
 
 </script>
 <style>
@@ -69,7 +74,12 @@ const window = ref(0);
     background-color: rgba(0, 0, 0, 0.515);
     /* height: auto; */
 }
-.preach{
+
+.preach {
     background-color: rgb(40, 85, 125);
+}
+
+.quote{
+    font-family: 'Courier New', Courier, monospace;
 }
 </style>

@@ -55,9 +55,9 @@
             </v-sheet>
 
         </v-container><br>
-        <div style="background-color: rgb(204, 204, 204);">
+        <div style="background-color: rgb(57, 100, 243);">
             <v-container>
-                <h1 class="text-center">FAQ's</h1>
+                <h1 class="text-center text-white">FAQ's</h1>
                 <v-expansion-panels class="mb-10" variant="popout">
                     <v-expansion-panel title="What kind of organization is Osu Church of Christ?"
                         text="Osu Church is a non-profit organization that aims at winning souls for God and giving back to the community as per the blessings of God."></v-expansion-panel>

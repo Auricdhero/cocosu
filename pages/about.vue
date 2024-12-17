@@ -64,6 +64,6 @@ console.log(about)
 </script>
 <style>
 .about {
-    background-color: rgb(225, 225, 255);
+    background-color: rgb(255, 255, 255);
 }
 </style>
